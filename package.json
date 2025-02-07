@@ -1,0 +1,24 @@
+{
+  "name": "konva-card-maker",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "web": "npx parcel index.html",
+    "generate-card": "node src/backend-script.mjs",
+    "postbuild": "cp -r public/* dist/"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^3.1.0",
+    "konva": "^9.3.18",
+    "lodash-es": "^4.17.21"
+  },
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "parcel-reporter-static-files-copy": "^1.5.3"
+  },
+  "description": ""
+}
