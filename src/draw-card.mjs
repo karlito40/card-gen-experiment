@@ -33,7 +33,7 @@ export function drawCard(
   const articleLayer = createArticleLayer(
     {
       x: context.width - 30,
-      y: context.height - 20,
+      y: context.height - 40,
       labelText: binomialText,
       descriptionText,
       anchor: "bottom right",
@@ -42,7 +42,38 @@ export function drawCard(
   );
   stage.add(articleLayer);
 
+  const authorLayer = createAuthorLayer(
+    {
+      x: 0,
+      y: context.height - 14,
+      text: "@nourse",
+    },
+    context
+  );
+  stage.add(authorLayer);
+
   return stage;
+}
+
+function createAuthorLayer({ x, y, text }, context) {
+  const layer = new Konva.Layer({
+    x,
+    y,
+  });
+
+  const konvaText = new Konva.Text({
+    text,
+    fontSize: 10,
+    fill: "white",
+    fontFamily: "Fredoka One",
+    width: context.width,
+    align: "center",
+    shadowColor: "black",
+    shadowBlur: 1,
+  });
+  layer.add(konvaText);
+
+  return layer;
 }
 
 function createArticleLayer({ x, y, descriptionText, labelText }, context) {
@@ -60,7 +91,7 @@ function createArticleLayer({ x, y, descriptionText, labelText }, context) {
     stroke: "white",
     strokeWidth: 3,
     fillAfterStrokeEnabled: true,
-    width: 380,
+    width: 360,
     wrap: "word",
     align: "right",
   });
